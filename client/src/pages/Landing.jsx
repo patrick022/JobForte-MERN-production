@@ -32,7 +32,7 @@ const Landing = () => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://github.com/patrick022/Ai_image_generator"
+              href="https://github.com/patrick022/JobForte-MERN-production"
               className="btn btn-hero"
               style={{ marginRight: "18px", paddingTop: "8px" }}
             >
