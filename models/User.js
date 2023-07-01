@@ -29,13 +29,13 @@ const UserSchema = new mongoose.Schema({
   lastName: {
     type: String,
     trim: true,
-    maxlength: 20,
-    default: "lastName",
+    maxlength: 30,
+    default: "last name",
   },
   location: {
     type: String,
     trim: true,
-    maxlength: 20,
+    maxlength: 50,
     default: "Sydney, AU",
   },
 });

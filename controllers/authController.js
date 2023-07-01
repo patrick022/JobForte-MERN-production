@@ -73,6 +73,14 @@ const updateUser = async (req, res) => {
     _id: req.user.userId,
   });
 
+  if (lastName.length > 30) {
+    throw new BadRequestError("Last name must not exceed 30 letters ");
+  }
+
+  if (location.length > 50) {
+    throw new BadRequestError("Location must not exceed 50 letters");
+  }
+
   user.email = email;
   user.name = name;
   user.lastName = lastName;
