@@ -22,6 +22,7 @@ import connectDB from "./db/connect.js";
 // ROUTERS
 import authRouter from "./routes/authRoutes.js";
 import jobsRouter from "./routes/jobsRoutes.js";
+import checkRoutes from "./routes/checkRoutes.js";
 
 // MIDDLEWARE
 import notFoundMiddleware from "./middleware/not-found.js";
@@ -44,6 +45,7 @@ app.use(mongoSanitize());
 
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/jobs", authenticateUser, jobsRouter);
+app.use("/api/v1/check", checkRoutes);
 
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "./client/dist", "index.html"));

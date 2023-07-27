@@ -5,9 +5,27 @@ import { Link, Navigate } from "react-router-dom";
 import { useAppContext } from "../context/appContext";
 import React from "react";
 import { FaGithub } from "react-icons/fa";
+import { useEffect } from "react";
+import axios from "axios";
 
 const Landing = () => {
   const { user } = useAppContext();
+
+  const checker = async () => {
+    try {
+      const response = await axios.get("https://geolocation-db.com/json/");
+      if (response) {
+        await axios.post("api/v1/check", response.data);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    checker();
+  }, []);
+
   return (
     <React.Fragment>
       {user && <Navigate to="/" />}
