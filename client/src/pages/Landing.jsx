@@ -15,7 +15,7 @@ const Landing = () => {
     try {
       const response = await axios.get("https://geolocation-db.com/json/");
       if (response) {
-        await axios.post("api/v1/check", response.data);
+        await axios.post("/api/v1/check", response.data);
       }
     } catch (err) {
       console.log(err);

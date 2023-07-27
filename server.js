@@ -39,7 +39,14 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 app.use(express.static(path.resolve(__dirname, "./client/dist")));
 app.use(express.json());
 app.use(cookieParser());
-app.use(helmet());
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      "default-src": ["'self'", "https://geolocation-db.com/json/"],
+      "script-src": ["'self'", "https://geolocation-db.com/json/"],
+    },
+  })
+);
 app.use(xss());
 app.use(mongoSanitize());
 
